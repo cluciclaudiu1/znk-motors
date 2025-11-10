@@ -1,1056 +1,692 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  scroll-behavior: smooth;
-  background: #a3a3a3;
+body{
   overflow-x: hidden;
+  margin: 0;
 }
 
-body.intro-active {
-  overflow: hidden;
+:root{
+  --navy:#1F2254;    /* albastrul din logo */
+  --red:#C8102E;     /* roșul din logo */
+  --ink:#0D0D2A;     /* foarte închis pentru background */
+  --white:#FFFFFF;
 }
 
-body main{
-  display: flex;
-  justify-self: flex-start;
-  align-items: center;
-  flex-flow: column;
+* { box-sizing: border-box; }
+
+.top-header{
+  position: fixed; inset: 0 0 auto 0;
+  height:10vh; min-height:60px;
+  background: var(--ink);
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 0 4vw;
+  z-index:1000;
+  box-shadow: 0 .6vh 1.6vh rgba(0,0,0,.25);
+  animation: slideDown .7s ease forwards;
 }
 
-body::-webkit-scrollbar {
-  display: none;
+.logo{ height:7vh; min-height:38px; width:auto; object-fit:contain; transition:transform .4s ease; }
+.logo-container:hover .logo{ transform: scale(1.04) rotate(-1.5deg); }
+
+.nav{
+  display:flex; align-items:center; gap:3vw;    padding-left: clamp(10vh, 49vw + 3vh, 60vw);
 }
 
-header {
-  background-color: black;
-  height: 8.59vh;
-  width: 100vw;
-  display:flex;
-  align-items: center;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  color:white;
-  padding: 20px;
-  position: fixed;
-  z-index: 1000;
+.nav-link{
+  color:var(--white); text-decoration:none;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-weight:600;
+  font-size: clamp(12px, 1.1vw + .2vh, 18px);
+  position:relative; padding:.5rem .2rem;
+  transition: color .25s ease;
 }
+.nav-link::after{
+  content:""; position:absolute; left:0; right:0; bottom:-.45rem;
+  height:.22rem; border-radius:1rem; background:var(--red);
+  width:0; margin:auto; transition:width .25s ease;
+}
+.nav-link:hover{ color:var(--red); }
+.nav-link:hover::after{ width:100%; }
 
-header h1{
-  font-size: clamp(16px, 1.5vw + 1vh, 32px);
-  flex-grow: 1;
+/* Buton accent */
+.btn-accent{
+  padding:.6rem 1rem; border:.18rem solid var(--red);
+  border-radius:999px;
 }
+.btn-accent:hover{ background:var(--red); color:var(--white); }
 
-header .nav{
-  height: 5.37vh;
-  width: 40.32vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap:5.65vw;
+/* Burger */
+.burger{
+  display:none; width:42px; height:42px; border:none; background:transparent;
+  position:relative; cursor:pointer;
 }
+.burger span{
+  position:absolute; left:8px; right:8px; height:3px; background:var(--white);
+  border-radius:2px; transition: transform .3s ease, opacity .3s ease, top .3s ease;
+}
+.burger span:nth-child(1){ top:12px; }
+.burger span:nth-child(2){ top:20px; }
+.burger span:nth-child(3){ top:28px; }
 
-header a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 0.5vw;
-  font-size: clamp(8px, 0.8vw + 0.4vh, 16px);
-  text-decoration: none;
-  text-transform: uppercase;
-  cursor: pointer;
-  min-width: 7.36vw;
-  min-height: 3.36vh;  
-}
-
-header #acasa {
-  color:white;
-  transition: color 0.7s ease;
-}
-header #despre {
-  color:white;
-  transition: color 0.7s ease;
-}
-
-header #contact{
-display: flex;
-flex-direction: row;
-align-items: center;
-padding: 0.32vh 0.53vw;
-gap: 1.27vw;
-color: white;
-background: #6F1A07;
-width: 8.36vw;
-height: 3.76vh;
-transition: background-color 0.7s ease;
-}
-
-header #acasa svg path {
-  fill: currentColor;
-  transition: fill 0.7s ease;
-}
-header #acasa:hover {
-  color: #2E5266;
-}
-header #despre:hover {
-  color:#E2C044;
-
-}
-
-header #contact:hover {
-  background-color: #6F1A07;
-}
-
-header #acasa:hover svg path {
-  fill: #2E5266;
-}
-
-header a svg {
-  width: clamp(0px, 2vw + 1vh, 32px);  /* lățime fluidă, între 16px și 32px */
-  height: clamp(0px, 2vw + 1vh, 32px); /* înălțime fluidă, păstrează proporția */
-}
-
-
-main{
-    background: #F3FCF0;
-    width: 100%;
-    height: auto;
-}
-
-.entry{
+/* === SECȚIUNEA DE INTRARE (HERO) === */
+.entry {
   width: 100%;
-  height: 77.65vh;
-  background: 
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 71.63%, rgba(0, 0, 0, 0.08) 100%), 
-    url('entry.jpg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-}
-.entry div{
-  width: 100%;
-  height: 77.65vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  color:white;
-  font-family: 'Montserrat';
-}
-
-.entry div h1{
-  font-size: clamp(0px, 2vw + 1vh, 64px);
-  text-align: center;
-  transition: opacity 3s ease;
-  justify-self: end;
-}
-
-.entry div h2
-{
-width: 923px;
-height: 77px;
-font-family: 'Open Sans';
-font-style: normal;
-text-align: center;
-
-font-size: clamp(0px, 2vw + 1vh, 64px);
-  text-align: center;
-
-flex: none;
-order: 1;
-flex-grow: 0;
-justify-self: end;
-transition: opacity 0.7s ease;
-}
-
-.entry div h1.hidden,
-.entry div h2.hidden {
-  opacity: 0;
-}
-
-.services {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 100vh; /* jumătate de ecran */
+  background: url("entry.png") center center / cover no-repeat;
   position: relative;
-  width: 100vw;
-  height: 80vh;
-  padding: 4vh 1vw; /* 20px → aproximativ 2vh, 10px → 1vw */
-  gap: 2vh;
-  background: #010101;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.services h2{
-  color:white;
-  font-family: 'Montserrat';
-  text-align: center;
-  font-style: normal;
-  text-align: center;
-  width: 100%;
-  font-size: clamp(0px, 1.5vw + 1vh, 32px);
+/* strat semi-transparent peste imagine pentru contrast */
+.entry-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 42, 0.6); /* albastru-închis transparent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.services-cards p{
-  color: white;
+
+/* textul central */
+.entry-text {
+  color: #ffffff;
+  text-align: center;
   font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  font-style: normal;
-  width: 100%;
-   font-size: clamp(0px, 1vw + 0.5vh, 20px);
-  font-weight: 600; /* potrivit pentru un h4 */
-  line-height: 1.3;
-  align-items: center;
-}
-.services svg,.dif svg, .despre svg, .func svg {
-  height: 10vh;   /* înălțimea va fi 10% din viewport height */
-  width: 100%;    /* lățimea rămâne 100% din container */
-  max-width: 100%; /* pentru siguranță să nu depășească containerul */
-  opacity: 0;            /* invizibil inițial */
-  transform: translateY(20px); /* opțional: se mișcă puțin de jos în sus */
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.services svg.visible,.dif svg.visible, .despre svg.visible, .func svg.visible {
-  opacity: 1;            /* vizibil */
-  transform: translateY(0); /* revine la poziția normală */
-}
-
-.services-cards{
-   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  padding: 0;
-  gap: 2vw 7.5vh;
-  width: 98vw;
-  height: 55vh;
-  flex: none;
-  order: 2;
-  align-self: stretch;
-  flex-grow: 0;
-}
-
-.services-cards section{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  gap: 0.75vh;
-
-  width: 25.375vw;
-  height: 25.2vh;
-
-  border-bottom: 0.6vh solid #FFFFFF;
-
- 
-  transition: border-color 0.7s ease;
-  
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-}
-
-.services-cards section:hover{
-  border-color: #2E5266;
-}
-
-.services-cards div{
-width: 19.375vw;
-height: 17.2vh;
-background-color: #FFFFFF;
-flex: none;
-order: 0;
-flex-grow: 0;
- transition: weight 0.7s ease;
-  transition: height 0.7s ease;
-  background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
-}
-
-.services-cards section:hover div {
-  width: 21.375vw;
-  height: 19.2vh;
-}
-
-.dif,.despre{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  width: 100vw;
-  height: 110vh;
-  padding: 4vh 1vw; /* 20px → aproximativ 2vh, 10px → 1vw */
-  gap: 2vh;
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.dif h2,.despre h2{
-  color:#2E5266;
-  font-family: 'Montserrat';
-  text-align: center;
-  font-style: normal;
-  text-align: center;
-  width: 100%;
-  font-size: clamp(0px, 1.5vw + 1vh, 32px);
-}
-.dif h3, .despre h3{
-  color:#2E5266;
-  font-family: 'Montserrat';
-  text-align: center;
-  font-style: normal;
-  text-align: center;
-  width: 100%;
-  font-size: clamp(0px, 2vw + 1vh, 28px);
-  line-height: 1.3;
-  font-weight: 700;
-}
-
-.dif-cards,.despre-cards{
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-align-items: center;
-align-content: center;
-padding: 2.1vh 2.1vw; /* padding flexibil în funcție de viewport */
-gap: 5.2vh 6.25vw;    /* gap flexibil în funcție de viewport */
-
-width: 93vw;          /* lățimea întregului viewport */
-height: 85vh;          /* înălțimea ca procent din viewport */
-
-flex: none;
-order: 2;
-flex-grow: 0;
-}
-
-.dif-cards section,.despre-cards section{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  gap: 0.75vh;
-
-  width: 40.375vw;
-  height: 25.2vh;
-
-  border-bottom: 0.6vh solid #000000;
-
- 
-  transition: border-color 0.7s ease;
-  
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-}
-
-.dif-cards p, .despre-cards p{
-  color: rgb(0, 0, 0);
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  font-style: normal;
-  width: 100%;
-   font-size: clamp(0px, 1vw + 0.5vh, 20px);
-  font-weight: 600; /* potrivit pentru un h4 */
-  line-height: 1.3;
-  align-items: center;
-}
-
-.func{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  width: 100vw;
-  height: 80vh;
-  padding: 4vh 1vw; /* 20px → aproximativ 2vh, 10px → 1vw */
-  gap: 2vh;
-  background: #000000;
-}
-
-.func-cards{
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-align-items: center;
-align-content: center;
-padding: 2.1vh 2.1vw; /* padding flexibil în funcție de viewport */
-gap: 5.2vh 6.25vw;    /* gap flexibil în funcție de viewport */
-
-width: 93vw;          /* lățimea întregului viewport */
-height: 57vh;         /* înălțimea ca procent din viewport */
-
-flex: none;
-order: 2;
-flex-grow: 0;
-}
-
-.func-cards section{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  gap: 0.75vh;
-
-  width: 40.375vw;
-  height: 25.2vh;
-
-  border-bottom: 0.6vh solid #ffffff;
-
- 
-  transition: border-color 0.7s ease;
-  
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-}
-
-.func h2, .poze h2{
-  color:#E2C044;
-  font-family: 'Montserrat';
-  text-align: center;
-  font-style: normal;
-  text-align: center;
-  width: 100%;
-  font-size: clamp(0px, 1.5vw + 1vh, 32px);
-}
-.func h3, .poze h3{
-  color:#E2C044;
-  font-family: 'Montserrat';
-  text-align: center;
-  font-style: normal;
-  text-align: center;
-  width: 100%;
-  font-size: clamp(0px, 2vw + 1vh, 28px);
-  line-height: 1.3;
-  font-weight: 700;
-}
-
-.func-cards p{
-  color:#ffffff;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  font-style: normal;
-  width: 100%;
-   font-size: clamp(0px, 1vw + 0.5vh, 20px);
-  font-weight: 600; /* potrivit pentru un h4 */
-  line-height: 1.3;
-  align-items: center;
-}
-.despre{
-  height: 80vh;
-}
-.despre-cards{
-  height: 60vh;
-}
-.despre h2{
-  color:#6F1A07;
-}
-
-.despre h3{
-  color:#6F1A07;
-}
-
-.poze {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 5vh 1vw 1vh;
-  gap: 2.5vh;
-  background-color: #000;
-  width: 100vw;
-}
-
-.poze h2, .poze h3 {
-  color: white;
-}
-
-.slider {
-  position: relative;
-  width: 90vw;
-  max-width: 1200px;
-  height: 60vh;
-  margin: 5vh auto;
-  overflow: hidden;
-}
-
-.slider-track {
-  display: flex;
-  transition: transform 0.6s ease;
-  align-items: center;
-}
-
-.slide {
-  flex: 0 0 35%;  /* mai late decât înainte (era 30%) */
-  margin: 0 2%;
-  transition: transform 0.6s ease, opacity 0.6s ease, filter 0.6s ease;
-  opacity: 0.4;
-  filter: blur(2px);
-  transform: scale(0.8);
-  z-index: 1;
-}
-
-.slide img {
-  width: 100%;
-  height: 45vh;   /* mai scunde decât înainte (era 60vh) */
-  object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
-
-.slide.active {
-  opacity: 1;
-  filter: blur(0);
-  transform: scale(1.1);
-  z-index: 3;
-}
-
-.slide.prev, .slide.next {
-  opacity: 0.6;
-  filter: blur(1px);
-  transform: scale(0.9);
   z-index: 2;
+  padding: 0 2rem;
+  animation: fadeInUp 1s ease forwards;
 }
 
-.slide.hidden {
-  opacity: 0;
-  transform: scale(0.8);
-  filter: blur(2px);
-  z-index: 0;
+.entry-text h1 {
+  font-size: clamp(28px, 4vw + 1vh, 72px);
+  font-weight: 800;
+  margin-bottom: 1vh;
+  letter-spacing: 1px;
 }
 
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  border: none;
+.entry-text p {
+  font-size: clamp(14px, 1.2vw + 0.5vh, 22px);
+  font-weight: 400;
+  color: #f0f0f0;
+  max-width: 700px;
+  margin: 0 auto 2vh auto;
+}
+
+/* buton elegant roșu */
+.entry-btn {
+  display: inline-block;
+  background: #C8102E;
   color: white;
-  font-size: 3vh;
-  padding: 1vh 1vw;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 5;
+  padding: 0.8em 1.6em;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: clamp(14px, 1vw + 0.5vh, 20px);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+.entry-btn:hover {
+  background: transparent;
+  border-color: #C8102E;
+  color: #C8102E;
+  box-shadow: 0 0 15px rgba(200, 16, 46, 0.4);
 }
 
-.prev-btn { left: 1vw; }
-.next-btn { right: 1vw; }
-
-/* Container general */
-.whatsapp-container {
-  position: fixed;
-  bottom: 6vh;         /* puțin mai sus de marginea de jos */
-  right: 6vw;          /* puțin mai spre centru */
-  display: flex;
-  align-items: center;
-  gap: 1.2vw;          /* spațiu între text și iconiță */
-  z-index: 1000;
-  animation: fadeIn 1s ease-in-out;
-}
-
-/* Textul din stânga */
-.whatsapp-text {
-  background-color: rgba(50, 50, 50, 0.7);
-  color: white;
+.about-section {
+  width: 100%;
+  min-height: 80vh;
+  background-color: #f9f9f9;
+  color: #0D0D2A;
+  padding: 8vh 6vw;
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1.2vh, 1vw + 0.4vh, 2.2vh);
-  padding: 1vh 2vw;
-  border-radius: 3vh;
-  box-shadow: 0 0.5vh 1.5vh rgba(0,0,0,0.3);
-  white-space: nowrap;
-  animation: slideIn 1.2s ease-out;
-}
-
-/* Butonul rotund WhatsApp */
-.whatsapp-float {
-  position: relative;
-  width: 7vh;
-  height: 7vh;
-  background-color: #25d366;
-  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0.6vh 2vh rgba(0,0,0,0.3);
-  text-decoration: none;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  animation: pulse 2s infinite;
 }
 
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
-
-/* Logo WhatsApp */
-.whatsapp-icon {
-  width: 3.5vh;
-  height: 3.5vh;
-}
-
-/* Efect shine */
-.shine {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.4) 50%,
-    rgba(255,255,255,0) 100%
-  );
-  animation: shine 3s infinite;
-}
-
-/* Animații */
-@keyframes shine {
-  0% { left: -75%; }
-  50% { left: 125%; }
-  100% { left: 125%; }
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
-  70% { box-shadow: 0 0 0 3vh rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-}
-
-@keyframes slideIn {
-  0% { opacity: 0; transform: translateX(6vw); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-
-
-
-footer {
-  height: 30vh;
-  width: 100vw;
-  background-color: #010101;
-  box-sizing: border-box;
+.about-container {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5vw;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.about-text {
+  flex: 1 1 50%;
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.about-text h2 {
+  font-size: clamp(28px, 3vw + 1vh, 48px);
+  color: #0D0D2A;
+  border-left: 6px solid #C8102E;
+  padding-left: 1vw;
+  margin-bottom: 2vh;
+}
+
+.about-text p {
+  font-size: clamp(14px, 1vw + 0.4vh, 18px);
+  line-height: 1.6;
+  margin-bottom: 2vh;
+  color: #333;
+}
+
+/* valori */
+.about-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  margin-top: 4vh;
+}
+
+.value-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 2vh 2vw;
+  flex: 1 1 28%;
+  min-width: 220px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.value-card svg {
+  width: clamp(60px, 6vw + 3vh, 120px);
+  height: auto;
+  margin-bottom: 2vh;
+  fill: #C8102E; /* roșul brandului */
+  transition: fill 0.3s ease;
+}
+
+.value-card:hover svg {
+  fill: #0D0D2A; /* devine albastru închis la hover */
+}
+
+.value-card h3 {
+  color: #0D0D2A;
+  font-size: clamp(16px, 1.2vw + 0.5vh, 22px);
+  margin-bottom: 0.5vh;
+}
+
+/* imagine */
+.about-image {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  animation: fadeInRight 1s ease forwards;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.2);
+  object-fit: cover;
+}
+
+.process-section {
+  background-color: #ffffff;
+  color: #0D0D2A;
+  text-align: center;
+  padding: 10vh 5vw;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.process-section h2 {
+  font-size: clamp(28px, 3vw + 1vh, 48px);
+  color: #0D0D2A;
+  border-left: 6px solid #C8102E;
+  padding-left: 1vw;
+  display: inline-block;
+  margin-bottom: 2vh;
+}
+
+.process-section .subtitle {
+  color: #555;
+  font-size: clamp(14px, 1.1vw + 0.3vh, 18px);
+  margin-bottom: 6vh;
+}
+
+.process-steps {
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  align-content: center;
-  gap: 0vh 5vw;
-  border-top: 0.7vh solid #FFFFFF;
+  align-items: stretch;
+  gap: 3vw;
 }
 
-/* Contact */
-.footer-contact {
-  height: 25vh;
-  width: 30vw;
+.step {
+  background: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 4vh 2vw;
+  flex: 1 1 250px;
+  max-width: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* iconă circulară */
+.icon-box {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2vh auto;
+  background: #C8102E;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.step:hover .icon-box {
+  background: #0D0D2A;
+}
+
+.icon-box svg {
+  width: 40px;
+  height: 40px;
+}
+
+/* text */
+.step h3 {
+  font-size: clamp(16px, 1.2vw + 0.5vh, 22px);
+  margin-bottom: 1vh;
+}
+
+.step p {
+  font-size: clamp(13px, 1vw + 0.2vh, 18px);
+  color: #444;
+  line-height: 1.6;
+}
+
+.contact-section {
+  padding: 10vh 5vw;
+  background: linear-gradient(180deg, #fdfdfd 0%, #f2f2f2 100%);
+  color: #0D0D2A;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.contact-section h2 {
+  font-size: clamp(28px, 3vw + 1vh, 48px);
+  border-left: 6px solid #C8102E;
+  padding-left: 1vw;
+  margin-bottom: 1vh;
+  display: inline-block;
+}
+
+.subtitle {
+  color: #555;
+  font-size: clamp(14px, 1vw + 0.3vh, 18px);
+  margin-bottom: 6vh;
+  text-align: center;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4vw;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* --- stânga --- */
+.contact-left {
+  flex: 1 1 40%;
+  background: white;
+  padding: 4vh 3vw;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  gap: 2vh 5vw;
+  justify-content: space-between;
 }
 
-/* Hartă fixată corect */
-.footer-map {
-  width: 25vw;              /* nu 100vw, altfel rupe layoutul */
-  height: 20vh;             /* mai scundă, proporțională cu footerul */
-  position: relative;
-  overflow: hidden;
-  border-radius: 0.5vw;
-  border: 0.4vh solid #fff;
+.contact-left h3 {
+  color: #C8102E;
+  margin-bottom: 2vh;
+  font-size: clamp(18px, 1.5vw + 0.5vh, 26px);
 }
 
-.footer-map iframe {
+/* formular */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+  margin-bottom: 3vh;
+}
+
+.form-group input,
+.form-group textarea {
   width: 100%;
-  height: 100%;
-  filter: brightness(85%) grayscale(20%);
-  transition: 0.4s ease;
-  cursor: pointer;
-  border: none;
+  padding: 1.2vh 1vw;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.footer-map iframe:hover {
-  filter: brightness(100%) grayscale(0%);
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #C8102E;
+  box-shadow: 0 0 6px rgba(200,16,46,0.3);
+}
+
+.btn-send {
+  background: #C8102E;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 1.2vh 1vw;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-send:hover {
+  background: #0D0D2A;
+  transform: translateY(-3px);
+}
+
+/* detalii contact */
+.contact-details {
+  margin-top: 2vh;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  margin: 1.2vh 0;
+}
+
+.detail i {
+  color: #C8102E;
+  font-size: 1.3rem;
+  width: 25px;
+  text-align: center;
+}
+
+.detail a, .detail span {
+  color: #0D0D2A;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.detail a:hover {
+  color: #C8102E;
+}
+
+/* social media */
+.socials {
+  margin-top: 3vh;
+  display: flex;
+  gap: 1vw;
+}
+
+.social {
+  background: #C8102E;
+  color: white;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 12px rgba(200,16,46,0.5);
+}
+
+/* --- harta --- */
+.contact-map {
+  flex: 1 1 45%;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease;
+}
+
+.contact-map:hover {
   transform: scale(1.02);
 }
 
-/* Titlu Contact */
-.footer-contact h3 {
-  color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
+.contact-map iframe {
   width: 100%;
-  font-size: clamp(0.35rem, 1.5vw + 0.5vh, 2rem); /* între 16px și 32px */
-  line-height: 1.3;
+  height: 100%;
+  min-height: 500px;
+  border: none;
+}
+
+.site-footer {
+  background: #0D0D2A;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  padding: 6vh 5vw 3vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4vw;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 4vh;
+}
+
+.footer-left h3 {
+  color: #C8102E;
+  font-size: clamp(20px, 1.8vw + 0.5vh, 28px);
+  margin-bottom: 1vh;
+}
+
+.footer-left p {
+  color: #ccc;
+  font-size: clamp(13px, 1vw + 0.3vh, 17px);
+  max-width: 300px;
+  line-height: 1.5;
+}
+
+/* centru */
+.footer-center h4,
+.footer-right h4 {
+  font-size: clamp(16px, 1.2vw + 0.5vh, 22px);
+  margin-bottom: 1vh;
+  color: #fff;
   font-weight: 600;
 }
 
-
-/* Text Contact */
-.footer-contact p {
-  color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
-  width: 100%;
-  font-size: clamp(0.5rem, 1vw + 0.3vh, 1.25rem); /* între 13px și 20px */
-  font-weight: 500;
-  line-height: 1.4;
+.footer-center ul {
+  list-style: none;
+  padding: 0;
 }
 
-.footer-contact a {
-  color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
-  width: 100%;
-  font-size: clamp(0.5rem, 1vw + 0.3vh, 1.25rem); /* între 13px și 20px */
-  font-weight: 500;
-  line-height: 1.4;
+.footer-center li {
+  margin: 0.8vh 0;
+}
+
+.footer-center a {
+  color: #ccc;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
-.subfooter {
-  width: 100vw;
-  background-color: #0a0a0a;
+
+.footer-center a:hover {
+  color: #C8102E;
+}
+
+/* social media */
+.footer-socials {
   display: flex;
-  justify-content: center;
+  gap: 1vw;
+  margin-top: 1vh;
+}
+
+.social-link {
+  width: 42px;
+  height: 42px;
+  background: #C8102E;
+  border-radius: 50%;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.social-link:hover {
+  background: #fff;
+  color: #C8102E;
+  transform: translateY(-4px);
+  box-shadow: 0 0 15px rgba(200,16,46,0.5);
+}
+
+/* partea de jos */
+.footer-bottom {
   text-align: center;
+  padding-top: 2vh;
 }
 
-.subfooter p {
-  color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  opacity: 0.8;
-  margin: 0;
-  line-height: 1.4;
-  font-size: clamp(0.25rem, 0.8vw + 0.2vh, 1.1rem); /* între 12px și 18px */
-}
-
-.subfooter a {
-  color: #ffffff;
-  text-decoration: none;
-  opacity: 0.8;
-  transition: opacity 0.3s;
-  font-size: inherit; /* moștenește dimensiunea din <p> */
+.footer-bottom p {
+  font-size: clamp(12px, 0.9vw + 0.2vh, 16px);
+  color: #aaa;
+  letter-spacing: 0.5px;
 }
 
 
-.subfooter a:hover {
-  opacity: 1;
+/* animații */
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-footer svg{
-  width: 30vw;   /* lățime relativă la viewport */
-  height: 30vh;  /* înălțime relativă la viewport */
-
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-/* Responsive mobile */
-@media (max-width: 768px) {
-    .whatsapp-text {
-    font-size: clamp(0.9vh, 2vw, 1.5vh); /* text mai mic */
-    padding: 0.8vh 1.5vw;                /* padding mai mic */
+/* Mobile layout */
+@media (max-width: 900px){
+  .burger{ display:block; }
+  .nav{
+    position: fixed; top:10vh; right:0; bottom:0; width:min(75vw,420px);
+    background:linear-gradient(180deg, var(--ink) 0%, #191A3F 100%);
+    padding:4vh 6vw; flex-direction:column; align-items:flex-start; gap:3vh;
+    transform: translateX(100%); transition: transform .35s ease;
+    box-shadow: -12px 0 24px rgba(0,0,0,.35); height: 30vh;
+  }
+  .nav-link{ font-size: clamp(16px, 2.4vw + .8vh, 22px); }
+  .btn-accent{ width:100%; text-align:center; }
+  .backdrop{
+    position:fixed; inset:10vh 0 0 0; background:rgba(0,0,0,.35);
+    opacity:0; pointer-events:none; transition:opacity .3s ease; z-index:999;
+  }
+  /* — Active (deschis) — */
+  .nav.open{ transform: translateX(0); }
+  .backdrop.show{ opacity:1; pointer-events:auto; }
+  .burger.active span:nth-child(1){ top:20px; transform:rotate(45deg); }
+  .burger.active span:nth-child(2){ opacity:0; }
+  .burger.active span:nth-child(3){ top:20px; transform:rotate(-45deg); }
+
+   .entry {
+    height: 60vh;
+  }
+  .entry-text h1 {
+    font-size: clamp(24px, 6vw, 40px);
+  }
+  .entry-text p {
+    font-size: clamp(12px, 3.5vw, 18px);
   }
 
-  .whatsapp-container {
-    bottom: 4vh;
-    right: 5vw;
-  }
+   .about-container { flex-direction: column; }
+  .about-image img { width: 90%; }
 
-  header {
+    .process-steps {
     flex-direction: column;
-    height: auto; /* înălțime adaptivă */
-    gap:0.2vh;
+    align-items: center;
+    gap: 4vh;
+  }
+  .step {
+    max-width: 90%;
   }
 
-  header h1 {
-    font-size: clamp(16px, 6vw, 28px);
+    .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-info {
     text-align: center;
-    margin-bottom: 1vh;
   }
-
-  header .nav {
-    width: 100%;
-    flex-wrap: wrap;
+  .contact-item {
     justify-content: center;
-    gap: 0vw;
+  }
+  .contact-map iframe {
+    height: 300px;
   }
 
-  header a {
-    min-width: 30%;
-    min-height: auto;
-    font-size: clamp(10px, 3vw, 14px);
-    padding: 1vh 1vw;
-  }
-
-  header #contact {
-    width: 40%;
-    height: auto;
-    padding: 1vh 2vw;
-    font-size: clamp(10px, 3vw, 14px);
-  }
-
-  header a svg {
-    width: clamp(16px, 6vw, 28px);
-    height: clamp(16px, 6vw, 28px);
-  }
-
-  .entry {
-        height: 60vh;
-        background-size: cover;
-        display: flex;
-        justify-content: end;
-        align-items: end;
-    }
-
-  .entry div {
-    height: auto;
-    padding: 8vh 5vw; /* mai puțin padding pe mobil */
-    justify-content: center; /* text centrat pe verticală */
-  }
-
-  .entry div h1 {
-    font-size: clamp(18px, 7vw, 36px);
-    line-height: 1.2;
-  }
-
-  .entry div h2 {
-    width: 90%; /* nu mai e fix 923px */
-    height: auto;
-    font-size: clamp(14px, 5vw, 24px);
-    line-height: 1.3;
-    margin-top: 1vh;
-  }
-
-   .services {
-    height: auto;       /* adaptiv la conținut */
-    padding: 4vh 5vw;
-  }
-
-  .services h2 {
-    font-size: clamp(18px, 6vw, 28px);
-  }
-
-  .services-cards {
-    flex-direction: column; /* stivuire pe verticală */
-    gap: 4vh;               /* mai mult spațiu între carduri */
-    width: 100%;
-    height: auto;           /* se adaptează la conținut */
-    padding: 0;
-  }
-
-  .services-cards section {
-    width: 90%;       /* lățime mai mare pe mobil */
-    height: auto;     /* înălțime adaptivă */
-    border-bottom-width: 0.4vh;
-  }
-
-  .services-cards div {
-    width: 100%;
-    height: 20vh;      /* mai mic pentru telefon */
-  }
-
-  .services-cards section:hover div {
-    width: 100%;
-    height: 22vh;      /* efect hover mai mic pe mobil */
-  }
-
-  .services-cards p {
-    font-size: clamp(12px, 4vw, 18px);
-  }
-
-  .services svg {
-    height: 8vh; /* mai mic decât pe desktop */
-  }
-
-  .dif, .despre {
-    height: auto;           /* adaptiv la conținut */
-    padding: 4vh 5vw;       /* mai mult spațiu lateral pentru mobil */
-  }
-
-  .dif h2, .despre h2 {
-    font-size: clamp(18px, 6vw, 28px);
-  }
-
-  .dif h3, .despre h3 {
-    font-size: clamp(16px, 5vw, 24px);
-    line-height: 1.3;
-  }
-
-  .dif-cards, .despre-cards {
-    flex-direction: column; /* stivuire verticală */
-    gap: 4vh;               /* mai mult spațiu între carduri */
-    width: 100%;
-    height: auto;           /* se adaptează la conținut */
-    padding: 0;
-  }
-
-  .dif-cards section, .despre-cards section {
-    width: 90%;       /* lățime mai mare pe mobil */
-    height: auto;     /* înălțime adaptivă */
-    border-bottom-width: 0.4vh;
-  }
-
-  .dif-cards p, .despre-cards p {
-    font-size: clamp(12px, 4vw, 18px);
-  }
-
-  .func {
-    height: auto;          /* adaptiv la conținut */
-    padding: 4vh 5vw;      /* mai mult spațiu lateral pe mobil */
-  }
-
-  .func h2, .poze h2 {
-    font-size: clamp(18px, 6vw, 28px);
-  }
-
-  .func h3, .poze h3 {
-    font-size: clamp(16px, 5vw, 24px);
-    line-height: 1.3;
-  }
-
-  .func-cards {
-    flex-direction: column;  /* stivuire pe verticală */
-    gap: 4vh;                /* mai mult spațiu între carduri */
-    width: 100%;
-    height: auto;            /* se adaptează la conținut */
-    padding: 0;
-  }
-
-  .func-cards section {
-    width: 90%;      /* lățime mai mare pe mobil */
-    height: auto;    /* înălțime adaptivă */
-    border-bottom-width: 0.4vh;
-  }
-
-  .func-cards p {
-    font-size: clamp(12px, 4vw, 18px);
-  }
-
-  .despre {
-    height: auto;      /* se adaptează la conținut */
-    padding: 4vh 5vw;  /* mai mult spațiu lateral pe mobil */
-  }
-
-  .despre-cards {
-    height: auto;      /* înălțime adaptivă */
-    flex-direction: column; /* stivuire verticală */
-    gap: 4vh;          /* spațiu mai mare între carduri */
-    width: 100%;
-  }
-
-  .despre h2 {
-    font-size: clamp(18px, 6vw, 28px);
-  }
-
-  .despre h3 {
-    font-size: clamp(16px, 5vw, 24px);
-    line-height: 1.3;
-  }
-
-  .poze {
-    padding: 4vh 5vw 2vh; /* mai mult spațiu lateral */
-    gap: 3vh;
-  }
-
-.poze h2 {
-  font-size: clamp(18px, 2.5vw + 0.5vh, 28px);
-}
-
-.poze h3 {
-  font-size: clamp(14px, 1.8vw + 0.3vh, 22px);
-}
-
-  .slider {
-    width: 95vw;        /* mai aproape de marginile ecranului */
-    height: 40vh;       /* înălțime redusă pentru mobil */
-    margin: 3vh auto;
-  }
-
-  .slide {
-    flex: 0 0 70%;      /* carduri mai mari pe ecran mic */
-    margin: 0 2.5%;
-    opacity: 0.5;
-    transform: scale(0.85);
-  }
-
-  .slide img {
-    height: 30vh;       /* imagine mai scurtă */
-  }
-
-  .slide.active {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  .slide.prev, .slide.next {
-    transform: scale(0.9);
-    opacity: 0.6;
-  }
-
-  .slider-btn {
-    font-size: 4vw;     /* butoane mai mici, proporțional cu ecranul */
-    padding: 1.5vw 2vw;
-  }
-footer {
+   .footer-container {
     flex-direction: column;
-    height: auto;
-    padding: 3vh 5vw;
-    gap: 3vh;
-    border-top: 0.5vh solid #FFFFFF;
-  }
-
-  .footer-contact {
-    width: 90%;
-    height: auto;
     align-items: center;
     text-align: center;
-    gap: 2vh;
   }
-
-  .footer-map {
-    width: 90%;
-    height: 30vh;
-    margin-top: 2vh;
-    border-radius: 1vw;
+  .footer-center ul {
+    padding: 0;
   }
-
-  .footer-map iframe {
-    height: 100%;
-  }
-
-  .footer-contact h3 {
-    font-size: clamp(16px, 5vw, 22px);
-  }
-
-  .footer-contact p {
-    font-size: clamp(14px, 4vw, 18px);
-  }
-
-    .footer-contact a {
-    font-size: clamp(14px, 4vw, 18px);
-  }
-
-  .subfooter {
-    padding: 2vh 5vw;
-  }
-
-  footer svg {
-    width: 40vw;
-    height: auto;
+  .footer-socials {
+    justify-content: center;
   }
 }
+
+/* Animație de intrare */
+@keyframes slideDown{
+  from{ transform: translateY(-100%); opacity:0; }
+  to{ transform: translateY(0); opacity:1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Preferință sistem pentru mișcare redusă */
+@media (prefers-reduced-motion: reduce){
+  .top-header, .nav, .burger span, .nav-link::after { animation:none; transition:none; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left { transform: translateX(-50px); }
+.reveal-right { transform: translateX(50px); }
+.reveal-up { transform: translateY(50px); }
+.reveal-down { transform: translateY(-50px); }
