@@ -4,371 +4,248 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <meta name="theme-color" content="#000000">
-  <!-- Page title -->
-  <title>Reparații Airbag – Service calculatoare și centuri de siguranță | București</title>
-
-  <!-- SEO meta -->
-  <meta name="description" content="Reparații airbag București – service specializat în calculatoare airbag și centuri de siguranță. Diagnosticare rapidă, reparații profesionale, garanție și livrare în toată țara.">
-  <meta name="keywords" content="reparatii airbag, service airbag Bucuresti, resetare airbag, reparatii centuri siguranta, calculator airbag, service calculatoare airbag, airbag defect, reconditionare airbag, service auto airbag">
-  <meta name="author" content="Repar Airbag">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://repar-airbag.ro/" />
-
-  <!-- Open Graph (social sharing) -->
-  <meta property="og:title" content="Reparații Airbag – Service calculatoare și centuri de siguranță | București">
-  <meta property="og:description" content="Service profesional pentru reparații airbag și centuri de siguranță. Garanție și diagnosticare rapidă.">
-  <meta property="og:url" content="https://repar-airbag.ro/">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="ro_RO">
-  <meta property="og:site_name" content="Repar Airbag">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+<header class="top-header" role="banner">
+  <a href="#" class="logo-container" aria-label="ZNK Motors - Acasă">
+    <img src="logo.png" alt="ZNK Motors" class="logo" />
+  </a>
 
-<header class="site-header">
-  <div class="container">
-    <a href="#" class="logo">REPAR-AIRBAG<span>.RO</span></a>
+  <button class="burger" id="burger"
+          aria-label="Deschide meniul" aria-expanded="false" aria-controls="nav">
+    <span></span><span></span><span></span>
+  </button>
 
-    <nav class="nav" id="main-nav">
-      <a href="#acasa">Acasă</a>
-      <a href="#servicii">Servicii</a>
-      <a href="#despre">Despre Noi</a>
-      <a href="#galerie">Galerie</a>
-    </nav>
+  <nav id="nav" class="nav" role="navigation" aria-label="Meniu principal">
+    <a href="#despre" class="nav-link">Despre</a>
+    <a href="#servicii" class="nav-link">Servicii</a>
+    <a href="#contact" class="nav-link btn-accent">Contact</a>
+  </nav>
 
-    <a href="tel:+40721070986" class="contact-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="22" height="22" fill="currentColor">
-        <path d="M35.49 43.05c-.19 0-.38-.01-.56-.03-8.58-.94-16.64-4.59-23.01-10.42L10.48 31.17C4.63 24.79.97 16.72.03 8.12c-.12-1.07.12-2.15.68-3.07.56-.92 1.4-1.63 2.4-2.02l7.17-2.79c.82-.32 1.73-.33 2.56-.03.83.31 1.51.93 1.93 1.7l5.04 9.26c.37.69.5 1.49.38 2.26-.11.78-.47 1.5-1.02 2.05l-3.96 3.89c1.21 1.69 2.54 3.3 4 4.8 1.43 1.33 2.95 2.55 4.53 3.65l3.89-3.96c.55-.55 1.27-.9 2.05-1.02.77-.12 1.57.02 2.25.38l9.26 5.04c.77.42 1.39 1.1 1.7 1.93.31.83.3 1.74-.02 2.56l-2.79 7.18c-.36.91-.99 1.7-1.8 2.26-.81.55-1.76.85-2.75.85Z"/>
-      </svg>
-      <span>Contact</span>
-    </a>
-
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span><span></span><span></span>
-    </div>
-  </div>
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
 </header>
 
 
-<main>
-  <!-- HERO -->
-  <section class="hero" id="acasa">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1><span>Reparații</span> profesionale airbag-uri auto</h1>
-      <p>Service specializat în <strong>calculatoare airbag</strong> și <strong>centuri de siguranță</strong>, cu diagnosticare rapidă și garanție completă.</p>
-      <div class="hero-buttons">
-        <a href="#despre" class="btn-primary">Află mai multe</a>
-        <a href="tel:+40721070986" class="btn-secondary">Sună acum</a>
+  <main class="content">
+  <section class="entry" class="entry reveal">
+    <div class="entry-overlay">
+      <div class="entry-text">
+        <h1>ZNK Motors</h1>
+        <p>Specializați în vânzarea de airbaguri și elemente de siguranță auto.</p>
+        <a href="#contact" class="entry-btn">Contactează-ne</a>
       </div>
     </div>
   </section>
 
-  <section class="services" id="servicii">
-  <div class="services-header fade-in">
-    <h2>SERVICIILE NOASTRE</h2>
-    <p>Reparații complete pentru sistemele de siguranță auto — precizie, calitate și garanție.</p>
-  </div>
-
-  <div class="services-showcase">
-    <article class="service fade-in" style="background-image: url('service1.jpg');">
-      <div class="overlay"></div>
-      <div class="service-content">
-        <h3>Reparații calculatoare airbag</h3>
-        <p>Resetare și reprogramare module SRS cu echipamente profesionale.</p>
-      </div>
-    </article>
-
-    <article class="service fade-in" style="background-image: url('service2.jpg');">
-      <div class="overlay"></div>
-      <div class="service-content">
-        <h3>Recondiționare centuri</h3>
-        <p>Reparăm și testăm mecanismele de pretensionare pentru siguranță deplină.</p>
-      </div>
-    </article>
-
-    <article class="service fade-in" style="background-image: url('service3.jpg');">
-      <div class="overlay"></div>
-      <div class="service-content">
-        <h3>Regenerare airbaguri declanșate</h3>
-        <p>Refacem sistemul airbag afectat în urma unui impact, ca nou.</p>
-      </div>
-    </article>
-
-    <article class="service fade-in" style="background-image: url('service4.jpg');">
-      <div class="overlay"></div>
-      <div class="service-content">
-        <h3>Diagnoză & Testare</h3>
-        <p>Scanare avansată pentru identificarea rapidă a defecțiunilor ascunse.</p>
-      </div>
-    </article>
-
-    <article class="service fade-in" style="background-image: url('service5.jpg');">
-      <div class="overlay"></div>
-      <div class="service-content">
-        <h3>Regenerare borduri și panouri</h3>
-        <p>Reconstrucție estetică și tehnică după declanșarea airbagurilor frontale.</p>
-      </div>
-    </article>
-
-    <article class="service fade-in" style="background-image: url('service6.jpg');">
-      <div class="overlay"></div>
-      <div class="service-content">
-        <h3>Consultanță tehnică</h3>
-        <p>Asistență pentru identificarea și înlocuirea corectă a componentelor defecte.</p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="about" id="despre">
-  <div class="about-wrapper fade-in">
+  <section id="despre" class="about-section" class="about-section reveal">
+  <div class="about-container">
     <div class="about-text">
-      <h2>DESPRE NOI</h2>
+      <h2>Despre ZNK Motors</h2>
       <p>
-        <strong>Repar-Airbag.ro</strong> este un service specializat în reparația și reprogramarea 
-        sistemelor de siguranță auto. Punem accent pe calitate, precizie și transparență 
-        în fiecare lucrare efectuată.
+        ZNK Motors este o companie specializată în vânzarea de <strong>airbaguri</strong> și <strong>elemente de siguranță auto</strong> pentru o gamă variată de mărci.
+        Punem accent pe calitate, profesionalism și siguranța clienților noștri, oferind produse verificate și testate, la cele mai înalte standarde.
       </p>
       <p>
-        Ne remarcăm prin promptitudine, experiență și profesionalism. Oferim garanție 
-        reală pentru toate intervențiile și asigurăm transport rapid în toată țara.
+        Fie că este vorba de <strong>airbaguri frontale, laterale</strong> sau <strong>calculatoare de airbag</strong>, fiecare piesă este atent selectată pentru a garanta compatibilitatea și funcționalitatea deplină.
+        Experiența noastră în domeniul siguranței auto ne recomandă ca partener de încredere.
       </p>
-
-      <div class="about-highlights">
-        <div class="highlight">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#E2C044" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
-          <div>
-            <h4>Garanție reală</h4>
-            <p>Toate lucrările sunt testate și certificate înainte de livrare.</p>
-          </div>
+      <div class="about-values">
+        <div class="value-card">
+           <svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M400.234 104.797C397.586 104.742 394.991 105.542 392.837 107.08C308.174 167.547 237.753 190.9 153.993 190.9C147.2 190.9 141.695 196.405 141.695 203.198V486.089C141.695 517.864 157.429 546.722 179.799 571.733C202.162 596.745 231.502 618.425 261.409 636.522C291.31 654.619 321.791 669.084 346.571 679.119C358.961 684.136 369.899 688.036 378.762 690.746C387.624 693.456 393.331 695.189 399.996 695.189C406.661 695.189 412.368 693.456 421.231 690.746C430.093 688.036 441.031 684.136 453.421 679.119C478.201 669.091 508.682 654.625 538.584 636.522C568.485 618.425 597.824 596.739 620.193 571.733C642.562 546.727 658.298 517.862 658.298 486.089V203.198C658.298 196.405 652.786 190.9 645.993 190.9C562.24 190.9 491.812 167.548 407.149 107.08C405.123 105.639 402.712 104.84 400.228 104.797H400.234ZM399.996 131.603C480.404 187.523 552.884 212.231 633.7 214.531L633.693 486.094C633.693 509.672 621.755 533.084 601.839 555.356C581.923 577.628 554.378 598.222 525.85 615.487C497.328 632.748 467.848 646.731 444.19 656.302C432.362 661.087 421.967 664.779 414.015 667.209C406.069 669.638 399.483 670.596 399.995 670.596C400.508 670.596 393.916 669.638 385.963 667.209C378.011 664.779 367.617 661.087 355.788 656.302C332.137 646.725 302.657 632.748 274.135 615.487C245.613 598.22 218.062 577.622 198.146 555.356C178.231 533.084 166.292 509.672 166.292 486.094V214.531C247.102 212.23 319.587 187.523 399.995 131.603H399.996Z" fill="#C8102E"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M510.453 313.781C507.261 313.879 504.228 315.216 502 317.504L362.351 457.153L297.172 402.862C294.681 400.677 291.416 399.585 288.108 399.841C284.8 400.097 281.742 401.678 279.618 404.223C277.488 406.768 276.481 410.064 276.822 413.366C277.158 416.662 278.818 419.684 281.412 421.747L355.209 483.245H355.215C360.098 487.322 367.288 486.999 371.792 482.5L519.393 334.899C523.031 331.365 524.124 325.957 522.146 321.282C520.169 316.613 515.524 313.634 510.452 313.781L510.453 313.781Z" fill="#C8102E"/>
+</svg>
+          <h3>Siguranță</h3>
+          <p>Produse testate și certificate pentru protecția ta și a pasagerilor.</p>
         </div>
-
-        <div class="highlight">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#E2C044" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
-          <div>
-            <h4>Promptitudine</h4>
-            <p>Diagnosticare și reparație în timp record, fără întârzieri.</p>
-          </div>
+        <div class="value-card">
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M622.125 583.406L675.384 675.936L632.428 671.377C627.96 670.87 623.627 673.378 621.808 677.48L603.998 717.708L543.945 614.071C546.735 613.015 549.554 611.794 552.472 610.238C562.628 604.818 573.7 600.222 587.317 599.813C604.364 599.361 613.837 594.795 622.125 583.406ZM435.531 583.321C443.826 594.796 453.347 599.355 470.394 599.819C484.011 600.228 495.301 604.366 505.281 610.244C507.881 611.746 510.378 612.972 512.837 613.967L453.481 717.575L435.714 677.488C433.895 673.386 429.568 670.877 425.051 671.384L382.089 675.943L435.531 583.321ZM578.116 344.93C589.139 356.545 600.534 364.071 616.47 369.351C627.676 373.031 632.004 376.541 634.653 390.352C637.839 407.113 642.893 418.593 653.605 432.04C660.062 440.145 662.668 447.066 657.523 459.146C651.322 473.77 649.863 487.943 651.188 504.568C652.097 516.225 651.407 521.518 639.835 529.568C625.529 539.59 617.557 548.208 609.587 564.102C604.997 573.257 599.284 578.769 586.204 578.988C568.949 579.318 556.834 582.236 542.21 592.032C531.645 599.136 523.937 596.982 515.465 592.032C500.298 583.139 488.726 579.324 471.452 578.988C458.379 578.769 452.69 573.257 448.101 564.102C440.123 548.208 432.201 539.596 417.846 529.568C406.329 521.511 405.59 516.231 406.5 504.568C407.812 487.941 406.402 473.769 400.164 459.146C395.068 447.073 397.613 440.146 404.083 432.04C414.788 418.606 419.854 407.113 423.083 390.352C425.689 376.54 430.065 373.043 441.222 369.351C457.158 364.065 468.59 356.588 479.576 344.93C488.28 335.635 496.214 334.634 506.231 336.916C522.631 340.707 536.889 340.243 551.519 336.916C562.816 334.365 572.025 338.448 578.116 344.93ZM560.269 314.315C556.112 314.357 551.699 315.096 546.963 316.512C534.079 320.375 521.86 319.1 510.751 316.512C505.923 315.364 501.504 314.73 497.353 314.675C484.829 314.595 474.666 319.741 464.688 330.263C454.855 340.651 445.883 345.571 434.255 349.666C415.303 356.331 406.197 367.616 402.589 386.116C399.849 400.191 395.253 409.541 387.556 419.38C375.215 435.133 373.616 449.086 380.629 466.621C385.878 479.695 386.732 490.718 385.695 502.974C384.004 522.743 390.34 535.774 405.556 546.426C412.843 551.534 418.355 557.271 422.903 563.411L353.762 683.23C349.477 690.616 355.392 699.771 363.876 698.861L419.722 692.929L442.782 744.913C446.236 752.707 457.082 753.257 461.305 745.865L528.419 628.837L596.205 745.909C600.484 753.3 611.293 752.696 614.747 744.914L637.794 692.93L693.654 698.862C702.132 699.772 708.052 690.617 703.755 683.231L634.736 563.505C639.296 557.31 644.862 551.572 652.192 546.414C667.402 535.751 673.683 522.727 672.005 502.962C670.955 490.707 671.822 479.689 677.059 466.609C684.084 449.073 682.527 435.122 670.137 419.369C662.428 409.53 657.833 400.186 655.135 386.105C651.54 367.605 642.391 356.32 623.482 349.655C611.824 345.571 602.894 340.646 593.049 330.252C583.039 319.741 572.75 314.088 560.269 314.315Z" fill="#C8102E"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M510.375 386.547C493.981 390.423 478.766 399.407 467.291 412.939C444.33 439.959 441.234 478.991 459.594 509.43C477.953 539.862 513.75 554.839 548.016 546.331C582.232 537.762 607.019 507.695 609.43 472.106C610.199 466.192 605.78 460.87 599.811 460.497C593.897 460.088 588.843 464.819 588.788 470.794C587.012 497.583 568.469 519.853 543.005 526.238C517.59 532.573 491.071 521.55 477.307 498.724C463.555 475.86 465.93 446.611 483.142 426.336C500.323 406.06 528.106 399.499 552.251 409.93C557.488 412.219 563.598 409.808 565.88 404.559C568.163 399.322 565.734 393.224 560.503 390.929C544.28 383.923 526.745 382.683 510.375 386.547Z" fill="#C8102E"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M604.719 401.781C602.033 401.824 599.433 402.929 597.572 404.845L526.093 475.036L506.783 455.767C496.986 445.971 482.362 460.692 492.158 470.446L514.168 492.455C520.577 498.864 531.38 498.821 537.899 492.455L612.063 419.604C618.795 413.079 614.102 401.641 604.721 401.782L604.719 401.781Z" fill="#C8102E"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M249.344 50.4531C246.457 50.4531 243.735 51.7287 241.867 53.8711L97.3606 219.965C95.7798 221.796 94.9009 224.066 94.9009 226.49V739.521C94.9009 745.038 99.3198 749.5 104.837 749.457H393.884C399.524 749.72 404.272 745.209 404.272 739.564C404.272 733.912 399.524 729.407 393.884 729.627H114.728V236.361H266.841C272.297 236.319 276.673 231.943 276.716 226.48V112.863C276.759 107.302 272.248 102.786 266.694 102.841C261.225 102.883 256.855 107.4 256.898 112.863V216.542H126.564L253.846 70.2533H589.471V286.956C589.429 292.517 593.89 297.033 599.444 297.033C604.956 297.033 609.46 292.523 609.381 286.956L609.375 60.4252C609.375 54.9077 604.907 50.4337 599.438 50.4337L249.344 50.4531Z" fill="#C8102E"/>
+<path d="M190.265 407.984C177.051 407.984 178.003 427.814 191.218 427.814H327.472C341.224 427.814 341.224 407.905 327.472 407.984C285.377 408.259 228.07 407.984 190.265 407.984Z" fill="#C8102E"/>
+<path d="M190.265 496.625C177.051 496.625 178.003 516.444 191.218 516.444H327.472C341.224 516.444 341.224 496.534 327.472 496.625C285.377 496.851 228.07 496.625 190.265 496.625Z" fill="#C8102E"/>
+<path d="M190.265 585.266C177.051 585.266 178.003 605.095 191.218 605.095H327.472C341.224 605.095 341.224 585.186 327.472 585.266C285.377 585.546 228.07 585.266 190.265 585.266Z" fill="#C8102E"/>
+<path d="M190.265 319.328C177.051 319.328 178.003 339.141 191.218 339.141H371.936C385.706 339.141 385.706 319.231 371.936 319.328C329.81 319.542 228.078 319.328 190.265 319.328Z" fill="#C8102E"/>
+</svg>
+ 
+          <h3>Profesionalism</h3>
+          <p>Echipă specializată cu experiență în domeniul sistemelor SRS.</p>
         </div>
-
-        <div class="highlight">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#E2C044" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-          <div>
-            <h4>Experiență</h4>
-            <p>Peste 10 ani în domeniul electronicii și siguranței auto.</p>
-          </div>
+        <div class="value-card">
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M311.125 260.328V273.023H336.516V260.328C336.516 239.327 319.425 222.236 298.423 222.236C277.422 222.236 260.331 239.327 260.331 260.328V273.023H285.722V260.328C285.722 253.327 291.416 247.633 298.417 247.633C305.43 247.633 311.125 253.327 311.125 260.328Z" fill="#C8102E"/>
+<path d="M412.688 260.328C412.688 253.327 418.382 247.633 425.383 247.633C432.384 247.633 438.078 253.327 438.078 260.328V273.023H463.469V260.328C463.469 239.327 446.378 222.236 425.377 222.236C404.375 222.236 387.284 239.327 387.284 260.328V273.023H412.675L412.688 260.328Z" fill="#C8102E"/>
+<path d="M361.906 387.297C396.909 387.297 425.389 358.817 425.389 323.814H399.998C399.998 344.816 382.908 361.906 361.906 361.906C340.905 361.906 323.814 344.816 323.814 323.814H298.423C298.423 358.817 326.903 387.297 361.906 387.297Z" fill="#C8102E"/>
+<mask id="mask0_84_25" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="43" y="6" width="714" height="788">
+<path d="M43.75 6.39062H756.25V793.594H43.75V6.39062Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_84_25)">
+<path d="M704.719 247.641H679.328C651.325 247.641 628.54 270.425 628.54 298.428V311.123C614.539 311.123 603.15 322.519 603.15 336.514V354.22C603.15 371.244 611.603 387.039 625.764 396.481L640.742 406.467L630.555 549.118L581.263 499.826C558.143 476.706 528.98 461.099 496.919 454.69L425.386 440.377V435.305L429.891 434.176C486.628 419.991 526.363 369.492 526.93 311.117L526.96 311.123C554.964 311.123 577.748 288.338 577.748 260.335C577.748 255.88 577.168 251.558 576.082 247.432C593.568 225.564 603.144 198.464 603.144 170.284C603.144 106.496 555.28 53.6089 491.81 47.2621L468.225 44.9061C434.027 20.053 392.108 6.39832 349.824 6.39832C322.407 6.39832 295.729 11.8732 270.533 22.6702L196.596 54.3593C150.466 74.128 120.661 119.325 120.661 169.514C120.661 197.876 130.25 225.197 147.761 247.291C146.657 251.453 146.059 255.823 146.059 260.334C146.059 288.337 168.843 311.121 196.846 311.121H196.87C197.438 369.495 237.172 419.996 293.909 434.181L298.414 435.31V439.778L220.967 450.843C161.226 459.376 110.951 499.781 89.7592 556.287L50.7639 660.273C46.5951 671.387 44.4834 683.045 44.4834 694.923C44.4834 749.329 88.7522 793.598 143.158 793.598H144.342C164.691 793.598 184.26 787.427 200.928 775.764L209.534 769.739L209.54 793.599H514.259V608.411L565.23 659.382C586.287 680.439 614.272 692.03 644.044 692.03C705.5 692.03 755.5 642.036 755.5 580.574V298.433C755.5 270.424 732.715 247.646 704.712 247.646L704.719 247.641ZM526.953 285.727H524.64C524.579 285.391 524.53 285.055 524.463 284.719L514.508 234.94H526.953C540.954 234.94 552.343 246.335 552.343 260.33C552.35 274.338 540.954 285.727 526.953 285.727ZM206.594 77.7109L280.537 46.0218C302.553 36.5797 325.862 31.7945 349.819 31.7945C387.63 31.7945 425.112 44.2884 455.355 66.9758L458.681 69.4722L489.272 72.53C539.711 77.5776 577.742 119.6 577.742 170.289C577.742 189.369 572.212 207.825 561.983 223.622C552.864 214.919 540.529 209.554 526.954 209.554H509.431L506.33 194.063C519.062 183.858 526.954 168.208 526.954 150.997V150.198C526.954 127.065 512.208 106.612 490.266 99.2945L480.183 95.9376L472.157 120.028L482.24 123.385C493.794 127.236 501.564 138.015 501.564 150.198V150.997C501.564 164.687 492.347 176.547 479.151 179.849L472.718 181.46L469.019 166.647C464.13 147.055 446.619 133.37 426.429 133.37H425.983C416.26 133.37 407.025 136.428 399.389 142.092C390.49 136.416 380.146 133.37 369.336 133.37H367.157C352.185 133.37 338.11 139.199 327.528 149.783L314.655 162.655C300.794 176.522 282.355 184.158 262.751 184.158H261.89C242.781 184.158 225.604 174.258 215.87 158.755C248.285 158.322 278.267 142.044 296.284 115.017L275.154 100.931C261.61 121.249 238.954 133.371 214.54 133.371H180.574L184.517 149.149C189.418 168.76 201.295 185.093 217.103 195.817L214.363 209.556H196.839C183.326 209.556 171.033 214.872 161.927 223.514C151.624 207.499 146.052 188.816 146.052 169.522C146.052 129.508 169.813 93.4722 206.592 77.7128L206.594 77.7109ZM171.444 260.336C171.444 246.334 182.839 234.945 196.834 234.945H209.279L199.324 284.725C199.257 285.061 199.215 285.396 199.147 285.732L196.84 285.726C182.839 285.726 171.444 274.337 171.444 260.336ZM222.231 309.859C222.231 303.109 222.903 296.328 224.227 289.706L240.822 206.723C247.561 208.561 254.622 209.549 261.885 209.549H262.745C289.137 209.549 313.948 199.271 332.606 180.612L345.479 167.74C351.265 161.947 358.961 158.761 367.152 158.761H369.331C377.516 158.761 385.218 161.947 391.004 167.74L399.983 176.718L412.318 164.383C415.943 160.757 420.796 158.761 425.984 158.761H426.429C434.937 158.761 442.317 164.529 444.379 172.781L454.224 212.247L482.648 205.136L499.56 289.7C500.885 296.322 501.556 303.103 501.556 309.853C501.556 357.094 469.55 398.086 423.725 409.542L399.989 415.481V445.528L361.896 483.62L323.804 445.528V415.481L300.062 409.548C254.237 398.092 222.231 357.095 222.231 309.859ZM370.364 626.156L336.501 578.763V578.439C336.501 566.366 342.501 555.155 352.548 548.458L356.662 545.711C362.601 541.75 369.51 539.663 376.651 539.663C396.525 539.663 412.686 555.825 412.686 575.697V577.778C412.686 589.527 406.942 600.556 397.317 607.302L370.364 626.156ZM186.364 754.953C173.986 763.62 159.453 768.204 144.341 768.204H143.156C102.745 768.204 69.8658 735.324 69.8658 694.919C69.8658 686.1 71.4344 677.438 74.5289 669.187L113.524 565.201C131.457 517.385 173.998 483.201 224.548 475.979L306.615 464.254L359.173 516.812C353.325 518.545 347.729 521.151 342.571 524.588L338.451 527.334C325.878 535.721 317.047 548.252 313.225 562.455C303.508 560.166 292.931 561.649 283.892 567.46L234.923 598.936V526.964H209.533V615.258L122.253 671.367L108.337 727.038L132.971 733.196L144.446 687.291L297.632 588.818C303.339 585.15 310.889 586.602 314.832 592.12L349.555 640.728L186.364 754.953ZM730.098 580.562C730.098 628.017 691.494 666.622 644.039 666.622C621.053 666.622 599.44 657.668 583.187 641.414L514.255 572.487V526.961H488.864V768.195H234.926V751.953L411.88 628.089C428.286 616.602 438.083 597.791 438.083 577.766V575.684C438.083 541.809 410.531 514.259 376.658 514.259C373.142 514.259 369.663 514.589 366.245 515.181L416.867 464.559L491.934 479.574C519.058 485 543.74 498.208 563.303 517.769L630.801 585.268L655.27 634.211L677.981 622.853L654.14 575.178L665.755 412.678H730.112L730.098 580.562ZM657.759 387.297L639.826 375.346C632.746 370.622 628.517 362.724 628.517 354.217L628.523 336.51C642.524 336.51 653.913 347.906 653.913 361.901H679.304C679.304 343.145 669.074 326.745 653.913 317.943L653.919 298.424C653.919 284.423 665.315 273.034 679.31 273.034H704.701C718.702 273.034 730.091 284.429 730.091 298.424V387.304L657.759 387.297Z" fill="#C8102E"/>
+</g>
+</svg>
+          <h3>Încredere</h3>
+          <p>Colaborăm transparent, oferind soluții sigure și rapide.</p>
         </div>
-      </div>
-    </div>
-
-    <div class="about-stats">
-      <div class="stat">
-        <h3>10+</h3>
-        <p>ani experiență</p>
-      </div>
-      <div class="stat">
-        <h3>1000+</h3>
-        <p>proiecte finalizate</p>
-      </div>
-      <div class="stat">
-        <h3>100%</h3>
-        <p>garanție reală</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="workflow" id="cum-functioneaza">
-  <div class="workflow-wrapper fade-in">
-    <div class="workflow-header">
-      <h2>CUM FUNCȚIONEAZĂ</h2>
-      <p>Procesul nostru simplu, rapid și eficient pentru reparația sistemelor de siguranță auto.</p>
-    </div>
-
-    <div class="workflow-grid">
-      <div class="flow-card">
-        <div class="flow-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#E2C044" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 12h-20"></path>
-            <path d="M12 2l-4 4h8l-4-4zM12 22l4-4h-8l4 4z"></path>
-          </svg>
-        </div>
-        <h3>1. Trimiți piesa</h3>
-        <p>Ne trimiți calculatorul airbag sau centura de siguranță prin curier, complet ambalate și protejate.</p>
-      </div>
-
-      <div class="flow-card">
-        <div class="flow-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#E2C044" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M9 12l2 2l4-4"></path>
-          </svg>
-        </div>
-        <h3>2. Diagnosticăm</h3>
-        <p>Identificăm rapid defectul folosind echipamente profesionale de testare și diagnoză.</p>
-      </div>
-
-      <div class="flow-card">
-        <div class="flow-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#E2C044" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-        </div>
-        <h3>3. Reparam profesional</h3>
-        <p>Executăm reparația completă și testarea finală pe banc de lucru dedicat.</p>
-      </div>
-
-      <div class="flow-card">
-        <div class="flow-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#E2C044" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-        </div>
-        <h3>4. Primești piesa înapoi</h3>
-        <p>Piesa este livrată înapoi testată, sigilată și însoțită de garanție scrisă.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="gallery" id="galerie">
-  <div class="slider-container fade-in">
-    <div class="slider-track">
-      <div class="slide"><img src="img1.jpg" alt=""></div>
-      <div class="slide"><img src="img2.jpg" alt=""></div>
-      <div class="slide"><img src="img3.jpg" alt=""></div>
-      <div class="slide"><img src="img4.jpg" alt=""></div>
-      <div class="slide"><img src="img5.jpg" alt=""></div>
-      <div class="slide"><img src="img6.jpg" alt=""></div>
-      <div class="slide"><img src="img7.jpg" alt=""></div>
-      <div class="slide"><img src="img8.jpg" alt=""></div>
-      <div class="slide"><img src="img9.jpg" alt=""></div>
-      <div class="slide"><img src="img10.jpg" alt=""></div>
-      <div class="slide"><img src="img11.jpg" alt=""></div>
-      <div class="slide"><img src="img12.jpg" alt=""></div>
-      <div class="slide"><img src="img13.jpg" alt=""></div>
-      <div class="slide"><img src="img14.jpg" alt=""></div>
-      <div class="slide"><img src="img15.jpg" alt=""></div>
+<section id="proces" class="process-section" class="process-section reveal">
+  <h2>Cum funcționează</h2>
+  <p class="subtitle">Proces simplu și sigur de comandă la ZNK Motors</p>
+
+  <div class="process-steps">
+    <!-- PAS 1 -->
+    <div class="step">
+      <div class="icon-box">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 
+          1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 
+          1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/>
+        </svg>
+      </div>
+      <h3>1. Contactează-ne</h3>
+      <p>Scrie-ne pe WhatsApp sau sună-ne pentru a verifica disponibilitatea piesei dorite.</p>
     </div>
 
-    <button class="arrow prev">&#10094;</button>
-    <button class="arrow next">&#10095;</button>
-
-    <div class="dots"></div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="contact-wrapper fade-in">
-    <h2>CONTACT</h2>
-    <p>Ne poți contacta rapid pentru informații, comenzi sau colaborări.</p>
-
-    <div class="contact-grid">
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#E2C044" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" href="tel:+40721070986">
-          <path d="M22 16.92V21a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3 5.18 2 2 0 0 1 5 3h4.09a1 1 0 0 1 1 .75l1.18 5a1 1 0 0 1-.25.9l-2.2 2.2a16 16 0 0 0 6.58 6.58l2.2-2.2a1 1 0 0 1 .9-.25l5 1.18a1 1 0 0 1 .75 1Z"/>
+    <!-- PAS 2 -->
+    <div class="step">
+      <div class="icon-box">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M3 6h18v2H3V6zm0 4h18v8H3v-8zm2 
+          2v4h14v-4H5z" fill="currentColor"/>
         </svg>
-        <a href="tel:+40721070986">+40 721 070 986</a>
       </div>
+      <h3>2. Confirmă comanda</h3>
+      <p>După ce stabilim modelul și compatibilitatea, confirmăm comanda și detaliile de livrare.</p>
+    </div>
 
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#E2C044" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" href="mailto:contact@repar-airbag.ro">
-          <path d="M22 4H2v16h20V4z"></path>
-          <polyline points="22,4 12,13 2,4"></polyline>
+    <!-- PAS 3 -->
+    <div class="step">
+      <div class="icon-box">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M20 7H4l3 9h10l3-9zm-7 11a2 2 0 11-4 
+          0h4z" fill="currentColor"/>
         </svg>
-        <a href="mailto:contact@repar-airbag.ro">contact@repar-airbag.ro</a>
       </div>
+      <h3>3. Pregătim livrarea</h3>
+      <p>Piesa este ambalată corespunzător și expediată rapid prin curier.</p>
+    </div>
 
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#E2C044" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" href="https://wa.me/40721070986">
-          <path d="M22.46 6c-.77.35-1.5.58-2.28.69a4.06 4.06 0 0 0 1.77-2.23c-.79.47-1.65.81-2.57.99A4.05 4.05 0 0 0 16.11 4c-2.27 0-4.1 1.84-4.1 4.1 0 .32.04.63.1.93-3.41-.17-6.43-1.8-8.46-4.28a4.1 4.1 0 0 0-.56 2.07c0 1.43.73 2.69 1.84 3.43a4.06 4.06 0 0 1-1.85-.52v.05c0 2 1.43 3.67 3.32 4.05a4.1 4.1 0 0 1-1.84.07 4.13 4.13 0 0 0 3.84 2.86A8.23 8.23 0 0 1 2 19.55a11.61 11.61 0 0 0 6.29 1.84c7.55 0 11.68-6.26 11.68-11.68 0-.18 0-.36-.01-.53A8.26 8.26 0 0 0 22.46 6z"/>
+    <!-- PAS 4 -->
+    <div class="step">
+      <div class="icon-box">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 4l1.41 1.41L7.83 11H20v2H7.83l5.58 
+          5.59L12 20l-8-8 8-8z" fill="currentColor"/>
         </svg>
-        <a href="https://wa.me/40721070986" target="_blank">WhatsApp</a>
       </div>
-
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#E2C044" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"></path>
-          <circle cx="12" cy="10" r="3"></circle>
-        </svg>
-        <span>București, România</span>
-      </div>
+      <h3>4. Primești produsul</h3>
+      <p>Primești piesa comandată în 24–48h, cu garanție și factură fiscală.</p>
     </div>
   </div>
 </section>
 
-<div class="whatsapp-container">
-  <div class="whatsapp-text">Contactează-ne pentru detalii și prețuri</div>
-  <a href="https://wa.me/40721070986" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_3_40)">
-        <path d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z" fill="#25D366"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.7911 37.3525H24.7852C22.3967 37.3517 20.0498 36.7524 17.9653 35.6154L10.4 37.6L12.4246 30.2048C11.1757 28.0405 10.5186 25.5855 10.5196 23.0702C10.5228 15.2017 16.9248 8.79999 24.7909 8.79999C28.6086 8.80164 32.1918 10.2879 34.8862 12.9854C37.5806 15.6828 39.0636 19.2683 39.0621 23.0815C39.059 30.9483 32.6595 37.3493 24.7911 37.3525Z" fill="#FDFDFD"/>
-      </g>
-      <defs>
-        <clipPath id="clip0_3_40">
-          <rect width="48" height="48" fill="white"/>
-        </clipPath>
-      </defs>
-    </svg>
-    <span class="shine"></span>
-  </a>
-</div>
+<section id="contact" class="contact-section" class="contact-section reveal">
+  <h2>Contact</h2>
+  <p class="subtitle">Suntem mereu disponibili pentru oferte și comenzi rapide</p>
+
+  <div class="contact-wrapper">
+    <!-- Coloana stângă: formular + info -->
+    <div class="contact-left">
+      <h3>Ia legătura cu noi</h3>
+
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Mesaj trimis cu succes!');">
+        <div class="form-group">
+          <input type="text" placeholder="Nume complet" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" placeholder="Număr de telefon" required>
+        </div>
+        <div class="form-group">
+          <textarea rows="4" placeholder="Mesajul tău..." required></textarea>
+        </div>
+        <button type="submit" class="btn-send">Trimite mesajul</button>
+      </form>
+
+      <div class="contact-details">
+        <div class="detail">
+          <i class="fa-solid fa-phone"></i>
+          <a href="tel:+40736047733">+40 736 047 733</a>
+        </div>
+        <div class="detail">
+          <i class="fa-brands fa-whatsapp"></i>
+          <a href="https://wa.me/40736047733" target="_blank">WhatsApp Direct</a>
+        </div>
+        <div class="detail">
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:office@znkmotors.ro">office@znkmotors.ro</a>
+        </div>
+        <div class="detail">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Bulevardul Ficusului 44a, București</span>
+        </div>
+      </div>
+
+      <div class="socials">
+        <a href="#" class="social"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </div>
+
+    <!-- Coloana dreaptă: hartă -->
+    <div class="contact-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.639736858484!2d26.0863905!3d44.4938021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b2030036ef438b%3A0xb3312fd341344f9e!2sZnk%20Motors!5e0!3m2!1sro!2sro!4v1698781300000!5m2!1sro!2sro"
+        allowfullscreen=""
+        loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+
 </main>
 
-<footer class="site-footer">
-  <div class="footer-wrapper">
-    <div class="footer-brand">
-      <h3>REPAR-AIRBAG.RO</h3>
-      <p>Service specializat în reparații calculatoare airbag și centuri de siguranță.</p>
+<footer class="site-footer" class="site-footer reveal">
+  <div class="footer-container">
+    <!-- Col stânga -->
+    <div class="footer-left">
+      <h3>ZNK Motors</h3>
+      <p>Elemente de siguranță auto și airbaguri originale</p>
     </div>
 
-    <div class="footer-links">
-      <a href="#despre">Despre noi</a>
-      <a href="#cum-functioneaza">Cum funcționează</a>
-      <a href="#galerie">Galerie</a>
+    <!-- Col centru -->
+    <div class="footer-center">
+      <h4>Linkuri utile</h4>
+      <ul>
+        <li><a href="#">Termeni și condiții</a></li>
+        <li><a href="#">Politica de confidențialitate</a></li>
+      </ul>
     </div>
 
-    <div class="footer-contact">
-      <a href="tel:+40721070986">📞 +40 721 070 986</a>
-      <a href="mailto:contact@repar-airbag.ro">✉️ contact@repar-airbag.ro</a>
-      <span>📍 București, România</span>
+    <!-- Col dreapta -->
+    <div class="footer-right">
+      <h4>Urmărește-ne</h4>
+      <div class="footer-socials">
+        <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/40736047733" class="social-link" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <p>© 2025 REPAR-AIRBAG.RO — Toate drepturile rezervate.</p>
+    <p>© 2025 ZNK Motors. Toate drepturile rezervate.</p>
   </div>
 </footer>
 
-<script src="scripts.js" defer></script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Repar Airbag",
-  "image": "https://repar-airbag.ro/logo.png",
-  "url": "https://repar-airbag.ro",
-  "telephone": "+40721070986",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "București",
-    "addressCountry": "RO"
-  },
-  "description": "Service specializat în reparații airbag, centuri de siguranță și calculatoare airbag. Diagnosticare rapidă și garanție pentru toate reparațiile."
-}
-</script>
 </body>
+<script src="scripts.js"></script>
 </html>
